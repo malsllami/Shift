@@ -9,7 +9,7 @@
  * ------------------------------------------------------------------
  */
 
-var PUBLIC_ACTIONS = ['login', 'deviceLogin', 'ping'];
+var PUBLIC_ACTIONS = ['login', 'deviceLogin', 'ping', 'getPublicSettings'];
 
 function doGet(e) {
   var action = e.parameter.action;
@@ -48,8 +48,13 @@ function doPost(e) {
       case 'revokeDevice':    return _revokeDevice(params, auth);
 
       // ---- الإعدادات ----
-      case 'getSettings':     return _getSettings(auth);
-      case 'updateSettings':  return _updateSettings(params, auth);
+      case 'getPublicSettings': return _getPublicSettings();
+      case 'getSettings':       return _getSettings(auth);
+      case 'updateSettings':    return _updateSettings(params, auth);
+
+      // ---- الوردية والملف الشخصي ----
+      case 'getShiftStatus':  return _getShiftStatus(params, auth);
+      case 'getMyProfile':    return _getMyProfile(params, auth);
 
       // ---- المزامنة التزايدية ----
       case 'checkVersions':   return jsonOk(getAllDataVersions(Object.keys(TABS).map(function (k) { return TABS[k]; })));

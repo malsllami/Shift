@@ -1,0 +1,45 @@
+/**
+ * variables.css — رموز التصميم (Design Tokens)
+ * الألوان الافتراضية هنا مطابقة لهوية SEC، لكنها تُستبدل وقت التشغيل
+ * بقيم حقيقية من تبويب "الإعدادات" عبر theme.service.js (لون البراند،
+ * ألوان الورديات، ألوان التحذيرات) — هذه القيم هي fallback فقط.
+ */
+:root {
+  /* البراند */
+  --brand: #0a5fa8;
+  --brand-ink: #083f70;
+  --brand-2: #0e9c92;
+
+  /* محايدات (بميل طفيف نحو الأزرق-الأخضر بدل رمادي بحت) */
+  --bg: #f2f4f3;
+  --surface: #ffffff;
+  --surface-2: #eaeef0;
+  --border: #dbe1e2;
+  --text: #111a17;
+  --text-muted: #5b6a67;
+
+  /* ألوان الورديات (تُستبدل من الإعدادات) */
+  --shift-a: #1565c0;
+  --shift-b: #00838f;
+  --shift-c: #2e7d32;
+  --shift-d: #6a1b9a;
+
+  /* حالة الدوام */
+  --duty-morning: #1976d2;
+  --duty-evening: #5e35b1;
+  --duty-off: #9e9e9e;
+
+  /* ألوان التحذيرات */
+  --warn-green: #2e7d32;
+  --warn-orange: #ef6c00;
+  --warn-yellow: #f9a825;
+  --warn-red: #c62828;
+
+  /* قياسات */
+  --radius-lg: 18px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+  --shadow: 0 1px 2px rgba(15, 30, 25, .05), 0 8px 20px -12px rgba(15, 30, 25, .18);
+
+  --font-base: Tahoma, "Segoe UI", Arial, "Noto Sans Arabic", sans-serif;
+}

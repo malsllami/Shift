@@ -33,6 +33,23 @@ function getSettingInt(key, fallback) {
   return isNaN(n) ? fallback : n;
 }
 
+/**
+ * إعدادات عامة غير حساسة (اسم الشركة، ألوان البراند والورديات) — بلا
+ * صلاحية دخول، تُستخدم لتلوين صفحة الدخول والواجهة قبل المصادقة.
+ * لا تحتوي أبدًا رموز الدخول أو أي بيانات حساسة.
+ */
+function _getPublicSettings() {
+  var map = loadSettingsMap();
+  var keys = [
+    'اسم_الشركة', 'لون_البراند_الاساسي', 'لون_البراند_الثانوي', 'لون_البراند_المميز',
+    'لون_وردية_أ', 'لون_وردية_ب', 'لون_وردية_ج', 'لون_وردية_د',
+    'لون_صباح', 'لون_مساء', 'لون_أوف'
+  ];
+  var out = {};
+  keys.forEach(function (k) { out[k] = map[k] || ''; });
+  return jsonOk(out);
+}
+
 /** يُستدعى فقط من _getSettings (مدير النظام فقط) — عرض كامل الجدول للوحة الإعدادات */
 function _getSettings(auth) {
   if (!_hasRole(auth, 'مدير')) return jsonFail('forbidden', 'صلاحية المدير فقط');
