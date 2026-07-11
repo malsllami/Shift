@@ -5,7 +5,7 @@
  */
 window.APP_CONFIG = {
   // رابط تطبيق الويب المنشور فعليًا من Google Apps Script
-  API_URL: 'https://script.google.com/macros/s/AKfycbyC07vg2C_8XGP-LjhvRV1J-88sTYbSq-hA1utIG9tgDk4_y3bvGmMEGtMjH-zzfogT/exec',
+  API_URL: 'https://script.google.com/macros/s/AKfycbwPkh7aN4tELD0oNviJLuyMWRMwKi7Tv9lOiUObXq2NlzMpSZdmDPMNz9ndJWEK7QYt/exec',
 
   SESSION_STORAGE_KEY: 'شفتات_رمز_الجلسة',
   USER_STORAGE_KEY: 'شفتات_بيانات_المستخدم',
