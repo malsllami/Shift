@@ -184,7 +184,7 @@ function _changePassword(p, auth) {
   var newPassword = String(p.newPassword || '');
   if (newPassword.length < 6) return jsonFail('password_too_short', 'كلمة المرور يجب أن تكون 6 أحرف على الأقل');
 
-  var defaultPassword = getSetting('كلمة_المرور_الافتراضية', '123456');
+  var defaultPassword = getSetting('كلمة المرور الافتراضية', '123456');
   if (newPassword === defaultPassword) {
     return jsonFail('password_same_as_default', 'لا يمكن استخدام كلمة المرور الافتراضية');
   }
@@ -251,7 +251,7 @@ function _registerDevice(p, auth) {
   if (!deviceId || !activationHash) return jsonFail('missing_fields', 'بيانات الجهاز ناقصة');
 
   var today = todayISO();
-  var correction = getSettingInt('تصحيح_التقويم_الهجري_بالأيام', 0);
+  var correction = getSettingInt('تصحيح التقويم الهجري بالأيام', 0);
   var row = new Array(COL_COUNT(TABS.TRUSTED_DEVICES)).fill('');
   row[COL(TABS.TRUSTED_DEVICES, 'الرقم الوظيفي')] = auth.empId;
   row[COL(TABS.TRUSTED_DEVICES, 'معرف الجهاز')] = deviceId;
@@ -300,7 +300,7 @@ function _deviceLogin(p) {
       if (!employee) return jsonFail('employee_not_found', 'لا يوجد ملف موظف');
 
       var today = todayISO();
-      var correction = getSettingInt('تصحيح_التقويم_الهجري_بالأيام', 0);
+      var correction = getSettingInt('تصحيح التقويم الهجري بالأيام', 0);
       sheet.getRange(i + 1, COL(TABS.TRUSTED_DEVICES, 'آخر استخدام ميلادي') + 1).setValue(today);
       sheet.getRange(i + 1, COL(TABS.TRUSTED_DEVICES, 'آخر استخدام هجري') + 1).setValue(toHijriString(today, correction));
       invalidateAfterWrite(TABS.TRUSTED_DEVICES);

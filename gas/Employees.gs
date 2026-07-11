@@ -10,13 +10,13 @@
 /**
  * يحسب لون التحذير حسب عدد الأيام المتبقية، بالاعتماد على حدود
  * قابلة للتعديل من الإعدادات (وليست ثابتة بالكود):
- * أخضر > حد_تحذير_برتقالي_ايام، برتقالي حتى ذلك الحد، أصفر حتى
- * حد_تحذير_اصفر_ايام، أحمر 0 أو أقل.
+ * أخضر > حد تحذير برتقالي أيام، برتقالي حتى ذلك الحد، أصفر حتى
+ * حد تحذير أصفر أيام، أحمر 0 أو أقل.
  */
 function _employeeWarningColor_(daysLeft) {
   if (daysLeft === null || daysLeft === undefined) return null;
-  var orangeUpper = getSettingInt('حد_تحذير_برتقالي_ايام', 90);
-  var yellowUpper = getSettingInt('حد_تحذير_اصفر_ايام', 29);
+  var orangeUpper = getSettingInt('حد تحذير برتقالي أيام', 90);
+  var yellowUpper = getSettingInt('حد تحذير أصفر أيام', 29);
   if (daysLeft <= 0) return 'احمر';
   if (daysLeft <= yellowUpper) return 'اصفر';
   if (daysLeft <= orangeUpper) return 'برتقالي';

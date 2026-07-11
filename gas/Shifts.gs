@@ -12,8 +12,8 @@ var SHIFT_LABELS = ['أ', 'ب', 'ج', 'د'];
 
 function _shiftPositionSettingKey_(shiftLabel) {
   var map = {
-    'أ': 'موضع_دورة_وردية_أ', 'ب': 'موضع_دورة_وردية_ب',
-    'ج': 'موضع_دورة_وردية_ج', 'د': 'موضع_دورة_وردية_د'
+    'أ': 'موضع دورة وردية أ', 'ب': 'موضع دورة وردية ب',
+    'ج': 'موضع دورة وردية ج', 'د': 'موضع دورة وردية د'
   };
   return map[shiftLabel];
 }
@@ -26,7 +26,7 @@ function _dayWithinPhase_(pos) {
 }
 
 function shiftStatusForDate(shiftLabel, dateISO) {
-  var refDate = getSetting('التاريخ_المرجعي_للورديات', '2026-07-10');
+  var refDate = getSetting('التاريخ المرجعي للورديات', '2026-07-10');
   var startPos = getSettingInt(_shiftPositionSettingKey_(shiftLabel), 0);
   var offset = daysBetween(refDate, dateISO);
   var pos = ((offset + startPos) % 8 + 8) % 8;
@@ -35,7 +35,7 @@ function shiftStatusForDate(shiftLabel, dateISO) {
 
 function _getWeekStrip_() {
   var today = todayISO();
-  var correction = getSettingInt('تصحيح_التقويم_الهجري_بالأيام', 0);
+  var correction = getSettingInt('تصحيح التقويم الهجري بالأيام', 0);
   var days = [];
   for (var i = -1; i <= 5; i++) {
     var d = new Date(today + 'T00:00:00');
@@ -58,12 +58,12 @@ function _getShiftStatus(p, auth) {
   if (!auth.shift) return jsonFail('no_shift_assigned', 'لا توجد وردية مرتبطة بحسابك بعد');
 
   var today = todayISO();
-  var correction = getSettingInt('تصحيح_التقويم_الهجري_بالأيام', 0);
+  var correction = getSettingInt('تصحيح التقويم الهجري بالأيام', 0);
   var mine = shiftStatusForDate(auth.shift, today);
 
   var colors = {};
   SHIFT_LABELS.forEach(function (s) {
-    var key = { 'أ': 'لون_وردية_أ', 'ب': 'لون_وردية_ب', 'ج': 'لون_وردية_ج', 'د': 'لون_وردية_د' }[s];
+    var key = { 'أ': 'لون وردية أ', 'ب': 'لون وردية ب', 'ج': 'لون وردية ج', 'د': 'لون وردية د' }[s];
     colors[s] = getSetting(key, '#0a5fa8');
   });
 
@@ -74,9 +74,9 @@ function _getShiftStatus(p, auth) {
     الحالة: mine.الحالة,
     رقم_اليوم_في_الفترة: mine.رقم_اليوم_في_الفترة,
     ألوان_الورديات: colors,
-    لون_صباح: getSetting('لون_صباح', '#1976D2'),
-    لون_مساء: getSetting('لون_مساء', '#5E35B1'),
-    لون_أوف: getSetting('لون_أوف', '#9E9E9E'),
+    لون_صباح: getSetting('لون صباح', '#1976D2'),
+    لون_مساء: getSetting('لون مساء', '#5E35B1'),
+    لون_أوف: getSetting('لون أوف', '#9E9E9E'),
     الأسبوع: _getWeekStrip_()
   });
 }

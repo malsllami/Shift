@@ -41,9 +41,9 @@ function getSettingInt(key, fallback) {
 function _getPublicSettings() {
   var map = loadSettingsMap();
   var keys = [
-    'اسم_الشركة', 'لون_البراند_الاساسي', 'لون_البراند_الثانوي', 'لون_البراند_المميز',
-    'لون_وردية_أ', 'لون_وردية_ب', 'لون_وردية_ج', 'لون_وردية_د',
-    'لون_صباح', 'لون_مساء', 'لون_أوف'
+    'اسم الشركة', 'لون البراند الأساسي', 'لون البراند الثانوي', 'لون البراند المميز',
+    'لون وردية أ', 'لون وردية ب', 'لون وردية ج', 'لون وردية د',
+    'لون صباح', 'لون مساء', 'لون أوف'
   ];
   var out = {};
   keys.forEach(function (k) { out[k] = map[k] || ''; });
@@ -83,7 +83,7 @@ function _updateSettings(p, auth) {
   var mgCol = COL(TABS.SETTINGS, 'تاريخ آخر تعديل ميلادي');
   var hjCol = COL(TABS.SETTINGS, 'تاريخ آخر تعديل هجري');
   var today = todayISO();
-  var correction = getSettingInt('تصحيح_التقويم_الهجري_بالأيام', 0);
+  var correction = getSettingInt('تصحيح التقويم الهجري بالأيام', 0);
   var todayHijri = toHijriString(today, correction);
 
   Object.keys(updates).forEach(function (key) {
